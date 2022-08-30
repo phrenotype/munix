@@ -1,0 +1,29 @@
+{
+    "name": "munix/munix",
+    "description": "A unique id generator written in php",
+    "type": "library",
+    "keywords": [
+        "php",
+        "php unique id",
+        "snowflake",
+        "munix",
+        "php snowflake",
+        "id generator",
+        "unique id"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul Robert",
+            "email": "paul.contrib@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Munix\\": "Munix/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0"
+    }
+}
