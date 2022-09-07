@@ -43,10 +43,9 @@ class Munix
 
         $pdo->query('CREATE TABLE IF NOT EXISTS munix(sequence INTEGER)');
 
-        if($this->getSequence() === null){
+        if ($this->getSequence() === null) {
             $pdo->query('INSERT INTO munix VALUES(0)');
         }
-
     }
 
     private function timestampDiff()

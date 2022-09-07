@@ -28,7 +28,7 @@ $id = Munix::nextId(5);
 echo $id;
 ```
 
-Will output
+Will give an output similar to  
 
 `85164824987754496`
 
