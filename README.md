@@ -1,10 +1,13 @@
 # Munix : A Unique ID Generator
 
-A unique random id generator that produces unique signed 64 bit integers without the need for a dedicated id server. The generated id's can be used as unique identifiers for objects. Collisions are not possible. You can try it yourself.
+A unique random id generator that produces unique signed 64 bit integers without the need for a dedicated id server. The generated id's can be used as unique identifiers for objects. Collisions are guaranteed not to occur. This was built to run on one or several machines that accept multiple requests per second.
 
 # Install
 
 `composer install munix/munix`
+
+# Requirements
+Munix requires `sqlite` to be installed and enabled in `php.ini`. A small sqlite db it used to track number sequences within milliseconds of each other to prevent collisions. Yes, it's small. It just contains one table, one column, and one row (1 x 1).
 
 # Usage
 
