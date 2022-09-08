@@ -4,7 +4,7 @@ namespace Munix;
 
 class Munix
 {
-    const TIMESTAMP_BITS = 41;
+    const TIMESTAMP_BITS = 42;
     const CUSTOM_BITS = 10;
     const SEQUENCE_BITS = 12;
 
@@ -98,7 +98,7 @@ class Munix
         // Save new sequence number
         $this->setSequence(self::$sequence);
         $this->pdo->commit();
-        usleep(2000);
+        usleep(1);
 
 
         self::$lastTimestamp = $currentTimestamp;
@@ -134,6 +134,7 @@ class Munix
 
     public static function nextId(int $customId = null)
     {
+        usleep(1);
         if (!self::$instance) {
             $instance = new static($customId);
             self::$instance = $instance;
