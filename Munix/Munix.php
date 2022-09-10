@@ -4,13 +4,13 @@ namespace Munix;
 
 class Munix
 {
-    const TIMESTAMP_BITS = 42;
-    const CUSTOM_BITS = 10;
-    const SEQUENCE_BITS = 12;
+    const TIMESTAMP_BITS = 44;
+    const CUSTOM_BITS = 9;
+    const SEQUENCE_BITS = 10;
 
-    const MAX_TIMESTAMP = -1 ^ (-1 << self::TIMESTAMP_BITS);
-    const MAX_CUSTOM_ID = -1 ^ (-1 << self::CUSTOM_BITS);
-    const MAX_SEQUENCE = -1 ^ (-1 << self::SEQUENCE_BITS);
+    const MAX_TS = -1 ^ (-1 << self::TIMESTAMP_BITS);
+    const MAX_CID = -1 ^ (-1 << self::CUSTOM_BITS);
+    const MAX_SEQ = -1 ^ (-1 << self::SEQUENCE_BITS);
 
     private static $instance = null;
 
@@ -86,7 +86,7 @@ class Munix
         if (self::$lastTimestamp == $currentTimestamp) {
 
             // Identity law + bit field size :)
-            self::$sequence = (($this->getSequence() ?? 0) + 1) & self::MAX_SEQUENCE;
+            self::$sequence = (($this->getSequence() ?? 0) + 1) & self::MAX_SEQ;
 
             if (self::$sequence == 0) {
                 $currentTimestamp = $this->waitTillNextMs(self::$lastTimestamp);
@@ -126,8 +126,8 @@ class Munix
 
     public static function setCustomId(int $customId)
     {
-        if (self::$customId < 0 || self::$customId > self::MAX_CUSTOM_ID) {
-            throw new \Error("Custom Id out of bounds. Must be between 0 and " . self::MAX_CUSTOM_ID);
+        if (self::$customId < 0 || self::$customId > self::MAX_CID) {
+            throw new \Error("Custom Id out of bounds. Must be between 0 and " . self::MAX_CID);
         }
         self::$customId = $customId;
     }
