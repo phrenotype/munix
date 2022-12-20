@@ -124,6 +124,10 @@ class Munix
         self::$customEpoch = $timestamp;
     }
 
+    public static function getEpoch(){
+        return self::$customEpoch;
+    }
+
     public static function setCustomId(int $customId)
     {
         if (self::$customId < 0 || self::$customId > self::MAX_CID) {
@@ -140,5 +144,14 @@ class Munix
             self::$instance = $instance;
         }
         return self::$instance->generate();
+    }
+
+    public static function nextIdAsObject(int $customId = null)
+    {
+        return new MunixId(self::nextId($customId));
+    }
+
+    public static function parse(int $id){
+        return new MunixId($id);
     }
 }

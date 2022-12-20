@@ -1,6 +1,6 @@
 {
     "name": "munix/munix",
-    "description": "A unique id generator written in php",
+    "description": "A Unique ID (64-bit Integer) Generator For PHP",
     "type": "library",
     "keywords": [
         "php",
