@@ -13,7 +13,7 @@ Munix requires `sqlite` to be installed and enabled in `php.ini`. A small sqlite
 
 To get an id, you only need to call one method, `Munix\Munix::nextId(int $customId)`.
 
-The only thing needed now is a custom number from 0 (inclusive) to 1023 (inclusive). For a single project, any number in that range will suffice. However, if it's a distributed system, each machine will need a different number, to avoid collisions.
+The only thing needed is a custom number from 0 (inclusive) to 1023 (inclusive). For a single project, any number in that range will suffice. However, if it's a distributed system, each machine will need a different number, to avoid collisions.
 
 If no `custom id` is supplied, the default value of `0` is used.
 
